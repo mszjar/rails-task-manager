@@ -1,0 +1,16 @@
+<div class="container">
+  <fieldset>
+      <h1 class="mb-3">Tasks</h1>
+    <% @tasks.each do |task| %>
+      <div class="d-flex">
+        <%= link_to task.title, task_path(task.id), class: "alert alert-info text-decoration-none w-25 me-2" %>
+        <% if task.completed %>
+          <div class="alert alert-success"> Task completed</div>
+        <% else %>
+          <div class="alert alert-warning"> Task not completed yet</div>
+        <% end %>
+      </div>
+    <% end %>
+  <%= link_to 'Create new task', new_task_path, class: "btn btn-primary text-decoration-none" %>
+  </fieldset>
+</div>

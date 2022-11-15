@@ -1,0 +1,19 @@
+<div class="container">
+  <h2><%= @task.title.capitalize %></h2>
+  <div class="details">
+    <p><%= @task.details %></p>
+  </div>
+  <div class="d-flex mb-3">
+    <div></div>
+    <% if @task.completed %>
+      <div class="alert alert-success"> Task completed</div>
+    <% else %>
+      <div class="alert alert-warning"> Task not completed yet</div>
+    <% end %>
+  </div>
+  <div>
+  <%= link_to 'Edit task', edit_task_path, class: "btn btn-warning text-decoration-none"  %>
+  <%= link_to "Delete task", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger text-decoration-none"  %>
+  </div>
+  <%= link_to 'Return to the main menu', tasks_path, class: "btn btn-info text-decoration-none mt-4" %>
+</div>
